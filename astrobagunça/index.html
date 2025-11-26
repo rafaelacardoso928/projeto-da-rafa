@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>AstroBagunça — Missão Especial</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- FUNDO ANIMADO -->
+  <canvas id="starfield"></canvas>
+
+  <header class="top">
+    <img src="logo.png" class="logo" alt="AstroBagunça">
+    <h1 class="title">AstroBagunça — Arrume a Nave!</h1>
+  </header>
+
+  <!-- HUD -->
+  <div class="hud">
+
+    <div class="hud-block">
+      <div class="timer">
+        <svg>
+          <circle cx="50" cy="50" r="45"></circle>
+          <circle id="timer-progress" cx="50" cy="50" r="45"></circle>
+        </svg>
+        <div id="time">60</div>
+      </div>
+      <p class="hud-label">Tempo</p>
+    </div>
+
+    <div class="hud-block">
+      <p class="counter">
+        <span id="placed">0</span> / 5
+      </p>
+      <p class="hud-label">Itens Organizados</p>
+    </div>
+
+    <div class="hud-block">
+      <button id="start" class="btn start">Iniciar</button>
+      <button id="reset" class="btn reset">Recomeçar</button>
+    </div>
+
+  </div>
+
+  <!-- GAME AREA -->
+  <div class="game">
+
+    <!-- Inventário -->
+    <div class="inventory panel">
+      <h2 class="section-title">Inventário</h2>
+      <p class="section-sub">Arraste os itens para a nave</p>
+      <div id="items" class="items"></div>
+    </div>
+
+    <!-- Nave -->
+    <div class="ship-area panel">
+      <h2 class="section-title">Nave Espacial</h2>
+      <p class="section-sub">Organize cada objeto no local certo</p>
+
+      <div class="ship-wrapper">
+        <img class="ship" src="ship.png" alt="Nave Espacial">
+
+        <!-- Dropzones muito bem posicionadas -->
+        <div class="dropzone" data-accept="helmet" style="top: 110px; left: 50%;"></div>
+        <div class="dropzone" data-accept="wrench" style="top: 250px; left: 22%;"></div>
+        <div class="dropzone" data-accept="book"   style="top: 250px; left: 78%;"></div>
+        <div class="dropzone" data-accept="cup"    style="top: 390px; left: 35%;"></div>
+        <div class="dropzone" data-accept="tool"   style="top: 390px; left: 65%;"></div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <p id="msg" class="msg"></p>
+
+  <script src="script.js"></script>
+</body>
+</html>
