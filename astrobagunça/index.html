@@ -1,82 +1,43 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>AstroBagunça — Missão Especial</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astrobagunça - Página Inicial</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <!-- FUNDO ANIMADO -->
-  <canvas id="starfield"></canvas>
+<canvas id="starfield"></canvas>
 
-  <header class="top">
-    <img src="logo.png" class="logo" alt="AstroBagunça">
-    <h1 class="title">AstroBagunça — Arrume a Nave!</h1>
-  </header>
+<header>
+    <h1 class="logo">🚀 Astrobagunça</h1>
+    <nav>
+        <a class="btn" href="index.html">Página Inicial</a>
+        <a class="btn" href="jogo.html">Jogo</a>
+    </nav>
+</header>
 
-  <!-- HUD -->
-  <div class="hud">
+<section class="home-box">
+    <h2>✨ Bem-vindo ao Astrobagunça!</h2>
+    <p>
+        Aqui, você será um astronauta em missão: a nave espacial está uma bagunça
+        e precisa ser organizada antes de decolar!  
+        Divirta-se, aprenda e salve o espaço da bagunça!
+    </p>
 
-    <div class="hud-block">
-      <div class="timer">
-        <svg>
-          <circle cx="50" cy="50" r="45"></circle>
-          <circle id="timer-progress" cx="50" cy="50" r="45"></circle>
-        </svg>
-        <div id="time">60</div>
-      </div>
-      <p class="hud-label">Tempo</p>
+    <div class="grid-info">
+        <div class="card"><h3>🧒 Público-Alvo</h3><p>Crianças de 6 a 10 anos.</p></div>
+        <div class="card"><h3>📚 Aprendizado</h3><p>Organização e responsabilidade.</p></div>
+        <div class="card"><h3>🎮 Como funciona?</h3><p>Arraste e organize os itens!</p></div>
     </div>
 
-    <div class="hud-block">
-      <p class="counter">
-        <span id="placed">0</span> / 5
-      </p>
-      <p class="hud-label">Itens Organizados</p>
-    </div>
+    <br>
+    <a href="jogo.html" class="btn">▶ Começar Jogo</a>
+</section>
 
-    <div class="hud-block">
-      <button id="start" class="btn start">Iniciar</button>
-      <button id="reset" class="btn reset">Recomeçar</button>
-    </div>
+<script src="starfield.js"></script>
 
-  </div>
-
-  <!-- GAME AREA -->
-  <div class="game">
-
-    <!-- Inventário -->
-    <div class="inventory panel">
-      <h2 class="section-title">Inventário</h2>
-      <p class="section-sub">Arraste os itens para a nave</p>
-      <div id="items" class="items"></div>
-    </div>
-
-    <!-- Nave -->
-    <div class="ship-area panel">
-      <h2 class="section-title">Nave Espacial</h2>
-      <p class="section-sub">Organize cada objeto no local certo</p>
-
-      <div class="ship-wrapper">
-        <img class="ship" src="ship.png" alt="Nave Espacial">
-
-        <!-- Dropzones muito bem posicionadas -->
-        <div class="dropzone" data-accept="helmet" style="top: 110px; left: 50%;"></div>
-        <div class="dropzone" data-accept="wrench" style="top: 250px; left: 22%;"></div>
-        <div class="dropzone" data-accept="book"   style="top: 250px; left: 78%;"></div>
-        <div class="dropzone" data-accept="cup"    style="top: 390px; left: 35%;"></div>
-        <div class="dropzone" data-accept="tool"   style="top: 390px; left: 65%;"></div>
-      </div>
-
-    </div>
-
-  </div>
-
-  <p id="msg" class="msg"></p>
-
-  <script src="script.js"></script>
 </body>
 </html>

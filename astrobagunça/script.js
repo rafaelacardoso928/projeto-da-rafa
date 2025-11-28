@@ -1,154 +1,33 @@
-/* --------------------------
-   FUNDO DE ESTRELAS ANIMADAS
-----------------------------*/
-const canvas = document.getElementById("starfield");
-const ctx = canvas.getContext("2d");
+const itens = document.querySelectorAll(".draggable");
+const dropzone = document.querySelector(".dropzone");
 
-let stars = [];
-let numStars = 300;
+let pontos = 0;
+let energia = 0;
 
-function resize() {
-  canvas.width = innerWidth;
-  canvas.height = innerHeight;
-}
-resize();
-
-function spawnStars() {
-  stars = [];
-  for (let i = 0; i < numStars; i++) {
-    stars.push({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      speed: Math.random() * 1 + 0.4,
-      size: Math.random() * 2 + 0.6
+itens.forEach(item => {
+    item.addEventListener("dragstart", () => {
+        item.classList.add("dragging");
     });
-  }
-}
-spawnStars();
 
-function animate() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.fillStyle = "white";
-
-  stars.forEach(star => {
-    ctx.beginPath();
-    ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
-    ctx.fill();
-    star.y += star.speed;
-
-    if (star.y > canvas.height) {
-      star.y = -2;
-      star.x = Math.random() * canvas.width;
-    }
-  });
-
-  requestAnimationFrame(animate);
-}
-animate();
-
-
-/* --------------------------
-        JOGO
-----------------------------*/
-
-// ITENS DISPONÍVEIS
-const itemData = [
-  { id: "helmet", label: "Capacete" },
-  { id: "wrench", label: "Chave Inglesa" },
-  { id: "book", label: "Manual" },
-  { id: "cup", label: "Copo Espacial" },
-  { id: "tool", label: "Ferramenta" }
-];
-
-const itemsContainer = document.getElementById("items");
-const placedCounter = document.getElementById("placed");
-
-let placed = 0;
-
-// CRIA OS ITENS NO INVENTÁRIO
-itemData.forEach(obj => {
-  const div = document.createElement("div");
-  div.classList.add("item");
-  div.textContent = obj.label;
-  div.draggable = true;
-  div.dataset.type = obj.id;
-
-  div.addEventListener("dragstart", e => {
-    e.dataTransfer.setData("text", div.dataset.type);
-  });
-
-  itemsContainer.appendChild(div);
+    item.addEventListener("dragend", () => {
+        item.classList.remove("dragging");
+    });
 });
 
-// DROPZONES
-const zones = document.querySelectorAll(".dropzone");
+dropzone.addEventListener("dragover", e => e.preventDefault());
 
-zones.forEach(zone => {
-  zone.addEventListener("dragover", e => e.preventDefault());
+dropzone.addEventListener("drop", () => {
+    const item = document.querySelector(".dragging");
+    dropzone.appendChild(item);
 
-  zone.addEventListener("drop", e => {
-    const item = e.dataTransfer.getData("text");
+    pontos += 10;
+    energia += 25;
 
-    if (item === zone.dataset.accept) {
-      zone.classList.add("good");
+    document.getElementById("pontos").innerText = pontos;
+    document.getElementById("energia").innerText = energia + "%";
+    document.getElementById("energia-progresso").style.width = energia + "%";
 
-      placed++;
-      placedCounter.textContent = placed;
-
-      if (placed === 5) win();
+    if (energia >= 100) {
+        document.getElementById("vitoria").classList.remove("hidden");
     }
-  });
 });
-
-
-/* --------------------------
-        TIMER
-----------------------------*/
-let time = 60;
-let timer;
-const timeText = document.getElementById("time");
-const timerProgress = document.getElementById("timer-progress");
-
-function startTimer() {
-  if (timer) return; // evita iniciar 2 vezes
-
-  timer = setInterval(() => {
-    time--;
-    timeText.textContent = time;
-
-    timerProgress.style.strokeDashoffset = 280 - (time / 60) * 280;
-
-    if (time <= 0) {
-      lose();
-    }
-
-  }, 1000);
-}
-
-
-/* --------------------------
-  BOTÕES: INICIAR / RECOMEÇAR
-----------------------------*/
-document.getElementById("start").onclick = () => {
-  startTimer();
-};
-
-document.getElementById("reset").onclick = () => {
-  location.reload();
-};
-
-
-/* --------------------------
-         RESULTADOS
-----------------------------*/
-function win() {
-  clearInterval(timer);
-  document.getElementById("msg").textContent =
-    "✨ Parabéns! A nave está pronta para decolar! 🚀";
-}
-
-function lose() {
-  clearInterval(timer);
-  document.getElementById("msg").textContent =
-    "⛔ Tempo esgotado! A missão falhou!";
-}

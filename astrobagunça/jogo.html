@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astrobagunça - Jogo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<canvas id="starfield"></canvas>
+
+<header>
+    <h1 class="logo">🛸 Organize a Nave</h1>
+    <nav>
+        <a class="btn" href="index.html">Página Inicial</a>
+        <a class="btn" href="jogo.html">Jogo</a>
+    </nav>
+</header>
+
+<section class="hud">
+    ⭐ Pontos: <span id="pontos">0</span> |
+    ⚡ Energia: <span id="energia">0%</span>
+    <div class="energia-bar"><div id="energia-progresso"></div></div>
+</section>
+
+<section class="game-area">
+    <div class="items">
+        <img src="item1.png" draggable="true" class="draggable">
+        <img src="item2.png" draggable="true" class="draggable">
+        <img src="item3.png" draggable="true" class="draggable">
+        <img src="item4.png" draggable="true" class="draggable">
+    </div>
+
+    <div class="dropzone">
+        <img src="nave.png" class="nave">
+        <p>Arraste os itens para dentro da nave</p>
+    </div>
+</section>
+
+<div id="vitoria" class="popup hidden">
+    <h2>🎉 Missão Concluída!</h2>
+    <p>A nave está pronta para decolar! 🚀</p>
+    <button onclick="location.reload()" class="btn">Jogar Novamente</button>
+</div>
+
+<script src="starfield.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
