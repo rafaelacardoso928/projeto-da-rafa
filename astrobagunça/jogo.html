@@ -1,52 +1,54 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Astrobagunça - Jogo</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Astrobagunça — Jogo</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<canvas id="starfield"></canvas>
+<canvas id="starfield" class="bg-canvas"></canvas>
 
-<header>
-    <h1 class="logo">🛸 Organize a Nave</h1>
-    <nav>
-        <a class="btn" href="index.html">Página Inicial</a>
-        <a class="btn" href="jogo.html">Jogo</a>
-    </nav>
+<header class="topbar">
+  <div class="brand">
+    <img src="SUA_LOGO_AQUI.png">
+    <div>
+      <h1 class="brand-title">Astrobagunça</h1>
+      <p class="brand-sub">Missão: organizar a nave!</p>
+    </div>
+  </div>
+
+  <nav class="nav">
+    <a href="index.html">Início</a>
+    <a class="active" href="jogo.html">Jogo</a>
+  </nav>
 </header>
 
-<section class="hud">
-    ⭐ Pontos: <span id="pontos">0</span> |
-    ⚡ Energia: <span id="energia">0%</span>
-    <div class="energia-bar"><div id="energia-progresso"></div></div>
-</section>
+<main class="container game-container">
 
-<section class="game-area">
-    <div class="items">
-        <img src="item1.png" draggable="true" class="draggable">
-        <img src="item2.png" draggable="true" class="draggable">
-        <img src="item3.png" draggable="true" class="draggable">
-        <img src="item4.png" draggable="true" class="draggable">
-    </div>
+  <div class="hud">
+    <div class="hud-box">⭐ Pontos: <span id="pontos">0</span></div>
+    <div class="hud-box">⚡ Energia: <span id="energia">0%</span></div>
+    <div class="hud-box">🚀 Fase: <span id="faseAtual">1</span>/3</div>
+  </div>
 
-    <div class="dropzone">
-        <img src="nave.png" class="nave">
-        <p>Arraste os itens para dentro da nave</p>
-    </div>
-</section>
+  <div id="stage" class="stage">
+    <img id="imgNave" class="img-nave" src="NAVE_FASE_1.png">
+  </div>
 
-<div id="vitoria" class="popup hidden">
-    <h2>🎉 Missão Concluída!</h2>
-    <p>A nave está pronta para decolar! 🚀</p>
-    <button onclick="location.reload()" class="btn">Jogar Novamente</button>
+  <div id="tray" class="tray"></div>
+
+</main>
+
+<div id="popup" class="popup hidden">
+  <h2 id="popup-title">Fase concluída! ⭐</h2>
+  <p id="popup-msg">Você está indo muito bem!</p>
+  <button class="btn-primary" id="nextFase">Próxima fase</button>
 </div>
 
 <script src="starfield.js"></script>
-<script src="script.js"></script>
+<script src="jogo.js"></script>
 
 </body>
 </html>

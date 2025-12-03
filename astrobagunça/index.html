@@ -1,43 +1,70 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Astrobagunça - Página Inicial</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Astrobagunça — Início</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<canvas id="starfield"></canvas>
+<canvas id="starfield" class="bg-canvas"></canvas>
 
-<header>
-    <h1 class="logo">🚀 Astrobagunça</h1>
-    <nav>
-        <a class="btn" href="index.html">Página Inicial</a>
-        <a class="btn" href="jogo.html">Jogo</a>
-    </nav>
+<header class="topbar">
+  <div class="brand">
+    <img src="SUA_LOGO_AQUI.png" alt="Logo Astrobagunça">
+    <div>
+      <h1 class="brand-title">Astrobagunça</h1>
+      <p class="brand-sub">Organizar a nave nunca foi tão divertido!</p>
+    </div>
+  </div>
+
+  <nav class="nav">
+    <a class="active" href="index.html">Início</a>
+    <a href="jogo.html">Jogo</a>
+  </nav>
 </header>
 
-<section class="home-box">
-    <h2>✨ Bem-vindo ao Astrobagunça!</h2>
-    <p>
-        Aqui, você será um astronauta em missão: a nave espacial está uma bagunça
-        e precisa ser organizada antes de decolar!  
-        Divirta-se, aprenda e salve o espaço da bagunça!
-    </p>
+<main class="container">
 
-    <div class="grid-info">
-        <div class="card"><h3>🧒 Público-Alvo</h3><p>Crianças de 6 a 10 anos.</p></div>
-        <div class="card"><h3>📚 Aprendizado</h3><p>Organização e responsabilidade.</p></div>
-        <div class="card"><h3>🎮 Como funciona?</h3><p>Arraste e organize os itens!</p></div>
+  <section class="hero">
+    <div class="hero-text">
+      <h2 class="hero-title">Aprender organização ficou MUITO mais divertido!</h2>
+
+      <p class="hero-desc">
+        No Astrobagunça, as crianças ajudam uma nave espacial
+        desorganizada a voltar a funcionar!  
+        É só arrastar os objetos para os lugares corretos em cada fase — e a nave ganha energia para decolar.
+      </p>
+
+      <ul class="features">
+        <li>🌟 Estilo espacial infantil pastel</li>
+        <li>🎮 3 fases super divertidas</li>
+        <li>⚡ Energia da nave aumenta conforme organiza</li>
+        <li>🚀 Final especial com decolagem</li>
+      </ul>
+
+      <a href="jogo.html" class="btn-primary">Jogar Agora 🚀</a>
     </div>
 
-    <br>
-    <a href="jogo.html" class="btn">▶ Começar Jogo</a>
-</section>
+    <img class="hero-img" src="SUA_IMAGEM_DA_NAVE_AQUI.png" alt="Nave">
+  </section>
+
+  <section class="sobre">
+    <h2 class="sec-title">Quem sou eu?</h2>
+
+    <p class="sobre-text">
+      Meu nome é <strong>Rafaela Cardoso</strong>, tenho <strong>16 anos</strong>,
+      estudo na escola <strong>Rubén Darío</strong> e faço o curso técnico
+      de Informática na <strong>ULBRA São Lucas</strong>.
+      <br><br>
+      Criei este projeto com o objetivo de ajudar crianças a desenvolverem habilidades
+      de organização de forma divertida, visual e educativa.
+    </p>
+  </section>
+
+</main>
 
 <script src="starfield.js"></script>
-
 </body>
 </html>
