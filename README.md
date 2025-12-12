@@ -47,17 +47,6 @@ O jogador assume o papel de um astronauta responsável por colocar tudo em ordem
 
 ---
 
-## 📁 **Estrutura do Projeto**
-📦 AstroBagunça
-├── index.html # Página inicial (descrição)
-├── game.html # Jogo
-├── styles.css # Estilos gerais
-├── script.js # Lógica do jogo
-└── assets/ #  imagens e sons
-
-
----
-
 ## 🚀 **Como Executar o Projeto**
 Não é necessário instalar nada. 👍  
 Basta baixar o repositório e abrir o arquivo:
@@ -67,7 +56,7 @@ O jogo funciona 100% no navegador, usando apenas:
 
 - HTML5  
 - CSS3  
-- JavaScript puro  
+- JavaScript 
 
 ---
 
@@ -109,7 +98,7 @@ Sugestões, melhorias e correções podem ser enviadas via **Pull Request**.
 
 ## 📜 Licença
 Este projeto é livre para uso educacional.  
-Adicione aqui a licença de sua escolha (MIT recomendado).
+
 
 ---
 
