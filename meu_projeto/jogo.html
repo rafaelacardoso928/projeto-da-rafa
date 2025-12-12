@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Astrobagunça — Jogo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <canvas id="starfield" class="bg-canvas" aria-hidden="true"></canvas>
+  <div class="bg-overlay" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <div class="brand">
+     <img src="logo.png" alt="Logo Astrobagunça" class="logo-img">
+
+      <div>
+        <div class="brand-title">Astrobagunça</div>
+        <div class="brand-sub">Missão: organizar a nave</div>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <a href="index.html">Início</a>
+      <a class="nav-link active" href="jogo.html">Jogo</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div class="game-layout">
+      <section class="game-area">
+        <div class="hud">
+          <div class="hud-box">⭐ <span id="pontos">0</span></div>
+          <div class="hud-box">⚡ <span id="energia">0%</span></div>
+          <div class="hud-box">🚀 Fase: <span id="faseAtual">1</span>/3</div>
+        </div>
+
+        <div id="stage" class="stage" aria-label="Área do jogo">
+          <!-- nave + dropzones serão geradas pelo jogo.js -->
+        </div>
+
+        <div id="tray" class="tray" role="list" aria-label="Bandeja de itens"></div>
+      </section>
+
+      <aside class="sidebar">
+        <div class="panel">
+          <h3>Checklist</h3>
+          <ul id="checklist" class="checklist"></ul>
+          <button id="btn-start" class="btn-primary" style="width:100%; margin-top:12px">Iniciar música</button>
+          <p class="muted" style="margin-top:8px; font-size:13px">Toque ou arraste para ativar o som.</p>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <div id="popup" class="popup" role="dialog" aria-modal="true">
+    <h2 id="popup-title">Fase concluída! ⭐</h2>
+    <p id="popup-text">Muito bem! Preparando a próxima fase...</p>
+    <div style="margin-top:16px;">
+      <button id="nextFase" class="btn-primary">Próxima fase</button>
+      <a href="index.html" class="btn-ghost" style="margin-left:8px">Voltar</a>
+    </div>
+  </div>
+
+  <!-- sons (substitua pelos seus arquivos em SOM/) -->
+  <audio id="bgMusic" src="SOM/bg-loop.mp3" loop preload="auto"></audio>
+  <audio id="soundWin" src="SOM/vitoria.mp3" preload="auto"></audio>
+  <audio id="soundLaunch" src="SOM/decolagem.mp3" preload="auto"></audio>
+
+  <script src="starfield.js"></script>
+  <script src="jogo.js"></script>
+</body>
+</html>

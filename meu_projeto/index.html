@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Astrobagunça — Início</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <canvas id="starfield" class="bg-canvas" aria-hidden="true"></canvas>
+  <div class="bg-overlay" aria-hidden="true"></div>
+
+  <header class="topbar" role="banner">
+    <div class="brand">
+      <img src="logo.png" alt="Logo Astrobagunça" class="logo-img">
+      <div>
+        <div class="brand-title">Astrobagunça</div>
+        <div class="brand-sub">Brincar • Organizar • Crescer</div>
+      </div>
+    </div>
+
+    <nav class="nav" role="navigation" aria-label="Menu principal">
+      <a href="index.html" class="nav-link active">Início</a>
+      <a href="jogo.html" class="nav-link">Jogar</a>
+    </nav>
+  </header>
+
+  <main class="container" id="main">
+
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-left">
+        <h1 id="hero-title" class="hero-title">Organizar é uma aventura — vem com a gente!</h1>
+
+        <p class="hero-lead">
+          No <strong>Astrobagunça</strong>, você ajuda a arrumar uma nave espacial cheia de coisas espalhadas.
+          Arraste os objetos até os lugares certos, ganhe energia e veja a nave decolar!
+        </p>
+
+        <ul class="hero-features" aria-hidden="false">
+          <li>🎯 <strong>Objetivo:</strong> ensinar organização de forma lúdica.</li>
+          <li>👧 <strong>Público:</strong> crianças de 5 a 12 anos.</li>
+          <li>🕹️ <strong>Mecânica:</strong> arrastar e soltar — funciona no computador e no touch.</li>
+          <li>🚀 <strong>Três fases</strong> com dificuldade crescente.</li>
+        </ul>
+
+        <div class="hero-ctas">
+          <a class="btn-primary" href="jogo.html">▶ Jogar Agora</a>
+          <button id="how-btn" class="btn-ghost">Como jogar</button>
+        </div>
+
+        <div class="author-card" aria-hidden="false">
+          <img src="eu.png" alt="Rafaela Cardoso" class="author-avatar">
+          <div>
+            <div class="author-name">Rafaela Cardoso</div>
+            <div class="author-meta">16 anos • Col. Rubén Darío • Técnico em Informática — ULBRA São Lucas</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-right" aria-hidden="true">
+        <img src="logo.png" alt="Nave Astrobagunça" class="hero-img">
+      </div>
+    </section>
+
+    <!-- COMO FUNCIONA -->
+    <section class="card how" aria-labelledby="how-title">
+      <h2 id="how-title">Como funciona</h2>
+      <p>
+        Em cada fase aparecem objetos na bandeja. Arraste cada item até o alvo correspondente na nave.
+        Cada acerto aumenta a energia. Quando todos os itens estiverem no lugar, a fase termina.
+      </p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-icon">1</div>
+          <div class="step-body">
+            <strong>Observe</strong>
+            <p>Veja os alvos na nave — cada alvo combina com um item.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-icon">2</div>
+          <div class="step-body">
+            <strong>Arraste</strong>
+            <p>Segure e arraste o item até o lugar correto (ou toque para mover no celular).</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-icon">3</div>
+          <div class="step-body">
+            <strong>Complete</strong>
+            <p>Ao posicionar todos os itens, a nave decola e você ganha uma celebração!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section class="card about" aria-labelledby="about-title">
+      <h2 id="about-title">Quem sou eu</h2>
+      <p>
+        Olá — eu sou <strong>Rafaela Cardoso</strong>, tenho 16 anos e estudo no Colégio Estadual Rubén Darío.
+        Curso Técnico em Informática na <strong>ULBRA São Lucas</strong>.
+      </p>
+
+      <p>
+        Gosto de juntar design e programação para criar projetos que ensinem brincando. O Astrobagunça
+        nasceu para tornar a organização algo divertido para crianças.
+      </p>
+
+      <p class="small">
+        Ferramentas: <strong>HTML, CSS, JavaScript</strong>.
+      </p>
+    </section>
+
+    <footer class="footer">
+      <small>© Astrobagunça — Projeto educativo — Rafaela Cardoso</small>
+    </footer>
+  </main>
+
+  <script src="starfield.js"></script>
+  <script>
+    document.getElementById('how-btn').addEventListener('click', ()=> {
+      const el = document.querySelector('.how');
+      el && el.scrollIntoView({behavior:'smooth', block:'center'});
+    });
+  </script>
+</body>
+</html>
